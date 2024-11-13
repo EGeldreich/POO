@@ -13,6 +13,7 @@ class Employe {
         $this->prenom = $prenom;
         $this->email = $email;
         $this->entreprise = $entreprise;
+        $this->entreprise->addEmploye($this);
     }
 
     // getters and setters

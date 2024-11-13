@@ -7,14 +7,16 @@ class Entreprise {
     private string $adresse;
     private string $codePostal;
     private string $ville;
+    private array $employes;
 
     // constructor
-    public function __construct (string $raisonSociale, string $dateCreation, string $adresse, string $codePostal, string $ville) {
+    public function __construct (string $raisonSociale, string $dateCreation, string $adresse, string $codePostal, string $ville, array $employes) {
         $this->raisonSociale = $raisonSociale;
         $this->dateCreation = new DateTime($dateCreation);
         $this->adresse = $adresse;
         $this->codePostal = $codePostal;
         $this->ville = $ville;
+        $this->employes = [];
     }
     
     // getters and setters
@@ -58,8 +60,20 @@ class Entreprise {
         $this->ville = $ville;
         return $this;
     }
+    public function getEmployes(): Employe
+    {
+        return $this->employes;
+    }
+    public function setEmployes($employes){
+        $this->employes = $employes;
+        return $this;
+    }
 
     // Useful
+    public function addEmploye(Employe $employe){
+        $this->employes[] = $employe;
+    }
+
     public function getAdresseComplete (): string
     {
         return $this->adresse.", ".$this->codePostal." ".$this->ville;

@@ -7,6 +7,7 @@ spl_autoload_register(function ($class_name) {
 });
 
 $elanFormation = new Entreprise("ELAN FORMATION", "1993-01-01", "14 rue du Rhône", "67100", "STRASBOURG");
+$tf1 = new Entreprise("TF1", "1980-01-01", "13 rue de la seine", "75000", "Paris");
 
 $stephane = new Employe ("SMAIL", "Stéphane", "stephane@elan-formation.fr", $elanFormation);
 
@@ -18,3 +19,6 @@ echo $elanFormation->getInfos()."</br></br>";
 echo $stephane."</br>";
 echo $stephane->getInfos()."</br>";
 
+$stephane->setEntreprise($tf1);
+
+echo $stephane->getInfos()."</br>";

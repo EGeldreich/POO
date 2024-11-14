@@ -86,7 +86,7 @@ class Compte {
     }
 
     public function virer(int $montant, Compte $compte){
-        if($this->solde >= $montnat){
+        if($this->solde >= $montant){
             $result = "$montant " .$this->devise. " viré de $this à $compte.<br>";
             $this->solde -= $montant;
             $compte->solde += $montant;

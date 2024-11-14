@@ -21,13 +21,13 @@ $compte5 = new Compte ("Compte courant", 20000.94, "EUR", $titulaire2);
 // echo $compte2."<br>";
 echo $titulaire1->afficherDetails()."<br>";
 
-echo $compte1->debiter(50);
-echo $compte1->debiter(500);
-echo $compte2->crediter(500);
+echo $compte1->debiter(50)."<br>";
+echo $compte1->debiter(500)."<br>";
+echo $compte2->crediter(500)."<br>";
 
-echo $titulaire1->titulaireInfos();
+// echo $titulaire1->titulaireInfos()."<br><br>";
 
-echo $compte1->virer(20, $compte3);
+echo $compte1->virer(20, $compte3)."<br>";
 
 echo $titulaire1->afficherDetails()."<br>";
 echo $compte1->afficherDetails()."<br>";

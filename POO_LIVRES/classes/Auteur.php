@@ -51,7 +51,9 @@ class Auteur {
         $result = "<h2> Livres de $this</h2><ul>";
         foreach($this->livres as $livre){
             $result .=
-            "<li><strong>" .$livre. "</strong> ("
+            "<li><strong>"
+            .$livre
+            ."</strong> ("
             .$livre->getParution()->format("Y")
             .") : "
             .$livre->getPages()

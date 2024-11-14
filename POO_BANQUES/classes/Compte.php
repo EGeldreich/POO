@@ -86,11 +86,15 @@ class Compte {
     }
 
     public function virer(int $montant, Compte $compte){
-        $result = "$montant " .$this->devise. " viré de $this à $compte.<br>";
-        $this->solde -= $montant;
-        $compte->solde += $montant;
-        $result .= "Nouvelle balance :<br>$this<br>$compte.<br>";
-        return $result;
+        if($this->solde >= $montnat){
+            $result = "$montant " .$this->devise. " viré de $this à $compte.<br>";
+            $this->solde -= $montant;
+            $compte->solde += $montant;
+            $result .= "Nouvelle balance :<br>$this<br>$compte.<br>";
+            return $result;
+        } else {
+            return "Solde insuffisant sur $this pour effecter ce virement.";
+        }
     }
 
     public function afficherDetails() {

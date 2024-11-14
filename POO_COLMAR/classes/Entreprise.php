@@ -7,16 +7,16 @@ class Entreprise {
     private string $adresse;
     private string $codePostal;
     private string $ville;
-    private array $employes;
+    private array $contrats;
 
     // constructor
-    public function __construct (string $raisonSociale, string $dateCreation, string $adresse, string $codePostal, string $ville, array $employes) {
+    public function __construct (string $raisonSociale, string $dateCreation, string $adresse, string $codePostal, string $ville,) {
         $this->raisonSociale = $raisonSociale;
         $this->dateCreation = new DateTime($dateCreation);
         $this->adresse = $adresse;
         $this->codePostal = $codePostal;
         $this->ville = $ville;
-        $this->employes = [];
+        $this->contrats = [];
     }
     
     // getters and setters
@@ -60,30 +60,42 @@ class Entreprise {
         $this->ville = $ville;
         return $this;
     }
-    public function getEmployes(): Employe
+    public function getContrats()
     {
-        return $this->employes;
+        return $this->contrats;
     }
-    public function setEmployes($employes){
-        $this->employes = $employes;
+    public function setContrats($contrats)
+    {
+        $this->contrats = $contrats;
         return $this;
     }
 
     // Useful
-    public function addEmploye(Employe $employe){
-        $this->employes[] = $employe;
-    }
-
     public function getAdresseComplete (): string
     {
         return $this->adresse.", ".$this->codePostal." ".$this->ville;
     }
 
-    public function __toString() {
-        return $this->raisonSociale;
-    }
-
     public function getInfos() {
         return $this." a été créé le ".$this->getDateCreation()->format("d-m-Y")." et se situe à l'adresse suivante : ".$this->getAdresseComplete();
     }
+
+    public function addContrat(Contrat $contrat){
+        $this->contrats[] = $contrat;
+    }
+
+    public function afficherEmployes() {
+        $result = "<h2>Employés de $this</h2><ul>";
+
+        foreach($this->contrats as $contrat){
+            $result .= "<li>".$contrat->getEmploye()." (".$contrat->getDateEmbauche()->format("d-m-Y").")</li>";
+        }
+        $result .= "</ul>";
+        return $result;
+    }
+    
+    public function __toString() {
+        return $this->raisonSociale;
+    }
+    
 }

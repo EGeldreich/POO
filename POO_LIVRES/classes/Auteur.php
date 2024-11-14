@@ -15,24 +15,24 @@ class Auteur {
     }
 
     // Getters et Setters
-    public function getNom()
+    public function getNom(): string
     {
         return $this->nom;
     }
 
-    public function setNom($nom)
+    public function setNom($nom): string
     {
         $this->nom = $nom;
 
         return $this;
     }
 
-    public function getPrenom()
+    public function getPrenom(): string
     {
         return $this->prenom;
     }
 
-    public function setPrenom($prenom)
+    public function setPrenom($prenom): string
     {
         $this->prenom = $prenom;
 

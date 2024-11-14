@@ -20,60 +20,60 @@ class Livre {
     }
 
     // Getters et Setters
-    public function getAuteur()
+    public function getAuteur(): Auteur
     {
     return $this->auteur;
     }
 
-    public function setAuteur($auteur)
+    public function setAuteur($auteur): Auteur
     {
     $this->auteurs = $auteur;
 
     return $this;
     }
 
-    public function getPrix()
+    public function getPrix(): float
     {
     return $this->prix;
     }
 
-    public function setPrix($prix)
+    public function setPrix($prix): float
     {
     $this->prix = $prix;
 
     return $this;
     }
 
-    public function getParution()
+    public function getParution(): DateTime
     {
     return $this->parution;
     }
 
-    public function setParution($parution)
+    public function setParution($parution): DateTime
     {
     $this->parution = $parution;
 
     return $this;
     }
     
-    public function getPages()
+    public function getPages(): int
     {
     return $this->pages;
     }
 
-    public function setPages($pages)
+    public function setPages($pages): int
     {
     $this->pages = $pages;
 
     return $this;
     }
 
-    public function getTitre()
+    public function getTitre(): string
     {
     return $this->titre;
     }
 
-    public function setTitre($titre)
+    public function setTitre($titre): string
     {
     $this->titre = $titre;
 

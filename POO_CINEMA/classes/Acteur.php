@@ -8,18 +8,11 @@ class Acteur extends Personne {
         $this->castings = [];
     }
 
-    public function getRoles():string{
-        return $this->roles;
+    public function getCastings(): array{
+        return $this->castings;
     }
-    public function setRoles($roles):string{
-        $this->roles = $roles;
-        return $this;
-    }
-    public function getFilms(){
-        return $this->films;
-    }
-    public function setFilms($films){
-        $this->films = $films;
+    public function setCastings(array $castings){
+        $this->castings = $castings;
         return $this;
     }
 
@@ -41,5 +34,4 @@ class Acteur extends Personne {
         return $this->prenom. " " .$this->nom;
     }
 
-    
 }

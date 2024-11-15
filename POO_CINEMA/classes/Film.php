@@ -22,59 +22,53 @@ class Film {
         $this->realisateur->addFilm($this);
         $this->genre->addFilm($this);
     }
-    public function getRoles():string{
-        return $this->roles;
+
+    public function getCastings(): array{
+        return $this->castings;
     }
-    public function setRoles($roles):string{
-        $this->roles = $roles;
-        return $this;
-    }
-    public function getActeurs(){
-        return $this->acteurs;
-    }
-    public function setActeurs($acteurs){
-        $this->acteurs = $acteurs;
+    public function setCastings(array $castings){
+        $this->castings = $castings;
         return $this;
     }
     public function getSynopsis():string{
         return $this->synopsis;
     }
-    public function setSynopsis($synopsis):string{
+    public function setSynopsis(string $synopsis){
         $this->synopsis = $synopsis;
         return $this;
     }
     public function getGenre():Genre{
         return $this->genre;
     }
-    public function setGenre($genre):Genre{
+    public function setGenre(Genre $genre){
         $this->genre = $genre;
         return $this;
     }
     public function getDuree():int{
         return $this->duree;
     } 
-    public function setDuree($duree):int{
+    public function setDuree(int $duree){
         $this->duree = $duree;
         return $this;
     }
-    public function getSortie():int{
+    public function getSortie(): DateTime{
         return $this->sortie;
     }
-    public function setSortie($sortie):string{
+    public function setSortie(string $sortie){
         $this->sortie = $sortie;
         return $this;
     }
     public function getRealisateur():string{
         return $this->realisateur;
     }
-    public function setRealisateur($realisateur):string{
+    public function setRealisateur(string $realisateur){
         $this->realisateur = $realisateur;
         return $this;
     }
     public function getTitre():string{
         return $this->titre;
     }
-    public function setTitre($titre):string{ 
+    public function setTitre(string $titre){ 
         $this->titre = $titre;
         return $this;
     }
@@ -87,13 +81,27 @@ class Film {
     public function listeActeurs(){
         $result = "Liste des acteurs ayant joués dans <strong>$this</strong> :<ul>";
         foreach($this->castings as $casting){
-                $result .= "<li>" .$casting->getActeur(). "</li>";
+                $result .= "<li>" .$casting->getActeur(). " - " .$casting->getRole(). "</li>";
         }
         $result .= "</ul>";
         return $result;
     }
 
     public function __toString(){
-        return $this->titre. " (" .$this->sortie->format("Y"). ")";
+        return $this->titre.
+        " ( ".
+        $this->sortie->format("Y").
+        " - ".
+        date("G:i", mktime(0,$this->duree)).
+        " )";
     }
+
+    // public function __toString(){
+    //     return $this->titre.
+    //     " ( ".
+    //     $this->sortie->format("Y").
+    //     " - ".
+    //     sprintf("%d:%02d", floor($this->duree/60), $this->duree%60).
+    //     " )";
+    // }
 }

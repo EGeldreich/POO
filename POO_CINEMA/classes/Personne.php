@@ -17,28 +17,28 @@ class Personne {
     public function getNom():string{
         return $this->nom;
     }
-    public function setNom($nom):string{
+    public function setNom(string $nom){
         $this->nom = $nom;
         return $this;
     }
     public function getPrenom():string{
         return $this->prenom;
     }
-    public function setPrenom($prenom):string{
+    public function setPrenom(string $prenom){
         $this->prenom = $prenom;
         return $this;
     }
     public function getSexe():string{
         return $this->sexe;
     }
-    public function setSexe($sexe):string{
+    public function setSexe(string $sexe){
         $this->sexe = $sexe;
         return $this;
     }
-    public function getNaissance():string{
+    public function getNaissance(): DateTime{
         return $this->naissance;
     }
-    public function setNaissance($naissance):string{
+    public function setNaissance(string $naissance){
         $this->naissance = $naissance;
         return $this;
     }

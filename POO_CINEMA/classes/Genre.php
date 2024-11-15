@@ -12,7 +12,14 @@ class Genre {
     public function getGenre():string{
         return $this->genre;
     }
-    public function setGenre($genre):string{
+    public function setGenre(string $genre){
+        $this->genre = $genre;
+        return $this;
+    }
+    public function getFilms():Film{
+        return $this->genre;
+    }
+    public function setFilms(Film $films){
         $this->genre = $genre;
         return $this;
     }
@@ -25,7 +32,7 @@ class Genre {
     public function listeFilms(){
         $result = "Liste des films du genre <strong>$this</strong> :<ul>";
         foreach($this->films as $film){
-                $result .= "<li>" .$film->getTitre(). "</li>";
+                $result .= "<li>$film</li>";
         }
         $result .= "</ul>";
         return $result;

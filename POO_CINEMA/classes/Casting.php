@@ -19,21 +19,21 @@ class Casting {
     public function getFilm():Film{
         return $this->film;
     }
-    public function setFilm($film):Film{
+    public function setFilm(Film $film){
         $this->film = $film;
         return $this;
     }
     public function getActeur():Acteur{
         return $this->acteur;
     }
-    public function setActeur($acteur):Acteur{
+    public function setActeur(Acteur $acteur){
         $this->acteur = $acteur;
         return $this;
     }
     public function getRole():Role{
         return $this->role;
     }
-    public function setRole($role):Role{
+    public function setRole(Role $role){
         $this->role = $role;
         return $this;
     }

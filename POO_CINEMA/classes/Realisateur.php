@@ -7,12 +7,11 @@ class Realisateur extends Personne {
         parent::__construct($nom, $prenom, $sexe, $naissance);
         $this->films = [];
     }
-
-    public function getRole():string{
-        return $this->role;
+    public function getFilms(): Film{
+        return $this->castings;
     }
-    public function setRole($role):string{
-        $this->role = $role;
+    public function setFilms(Film $films){
+        $this->films = $films;
         return $this;
     }
 

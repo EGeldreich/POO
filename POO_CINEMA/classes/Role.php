@@ -16,6 +16,13 @@ class Role {
         $this->role = $role;
         return $this;
     }
+    public function getCastings(): array{
+        return $this->castings;
+    }
+    public function setCastings(array $castings){
+        $this->castings = $castings;
+        return $this;
+    }
 
 
     // Adders
@@ -26,7 +33,7 @@ class Role {
     public function listeActeurs(){
         $result = "<strong>$this</strong> a été joué par :<ul>";
         foreach($this->castings as $casting){
-                $result .= "<li>" .$casting->getActeur(). "</li>";
+                $result .= "<li>" .$casting->getActeur(). " - " .$casting->getFilm(). "</li>";
         }
         $result .= "</ul>";
         return $result;

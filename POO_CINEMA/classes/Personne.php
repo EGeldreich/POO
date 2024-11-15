@@ -14,31 +14,31 @@ class Personne {
         $this->naissance = new DateTime($naissance);
     }
 
-    public function getNom(){
+    public function getNom():string{
         return $this->nom;
     }
-    public function setNom($nom){
+    public function setNom($nom):string{
         $this->nom = $nom;
         return $this;
     }
-    public function getPrenom(){
+    public function getPrenom():string{
         return $this->prenom;
     }
-    public function setPrenom($prenom){
+    public function setPrenom($prenom):string{
         $this->prenom = $prenom;
         return $this;
     }
-    public function getSexe(){
+    public function getSexe():string{
         return $this->sexe;
     }
-    public function setSexe($sexe){
+    public function setSexe($sexe):string{
         $this->sexe = $sexe;
         return $this;
     }
-    public function getNaissance(){
+    public function getNaissance():string{
         return $this->naissance;
     }
-    public function setNaissance($naissance){
+    public function setNaissance($naissance):string{
         $this->naissance = $naissance;
         return $this;
     }

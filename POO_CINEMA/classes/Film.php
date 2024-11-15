@@ -8,17 +8,34 @@ class Film {
     private int $duree;
     private Genre $genre;
     private string $synopsis;
+    private array $castings;
 
     public function __construct(string $titre, Realisateur $realisateur, string $sortie, int $duree, Genre $genre, string $synopsis) {
         $this->titre = $titre;
         $this->realisateur = $realisateur;
         $this->sortie = new DateTime($sortie);
         $this->duree = $duree;
-        // $this->genre = $genre;
+        $this->genre = $genre;
         $this->synopsis = $synopsis;
-        // $this->realisateur->addFilm($this);
+        $this->castings = [];
+
+        $this->realisateur->addFilm($this);
+        $this->genre->addFilm($this);
     }
-    
+    public function getRoles():string{
+        return $this->roles;
+    }
+    public function setRoles($roles):string{
+        $this->roles = $roles;
+        return $this;
+    }
+    public function getActeurs(){
+        return $this->acteurs;
+    }
+    public function setActeurs($acteurs){
+        $this->acteurs = $acteurs;
+        return $this;
+    }
     public function getSynopsis():string{
         return $this->synopsis;
     }
@@ -62,7 +79,20 @@ class Film {
         return $this;
     }
 
+    // Adders
+    public function addCasting(Casting $casting){
+        $this->castings[] = $casting;
+    }
     //----------------
+    public function listeActeurs(){
+        $result = "Liste des acteurs ayant joués dans <strong>$this</strong> :<ul>";
+        foreach($this->castings as $casting){
+                $result .= "<li>" .$casting->getActeur(). "</li>";
+        }
+        $result .= "</ul>";
+        return $result;
+    }
+
     public function __toString(){
         return $this->titre. " (" .$this->sortie->format("Y"). ")";
     }
